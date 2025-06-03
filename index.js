@@ -45,7 +45,7 @@ const productoIdDelete = async (id) => {
 
         // Si el DELETE estuvo ok, muestra el producto eliminado por consola
         if (response.ok) {
-          const { title, price, category } = product; // Use the details from the GET request
+          const { title, price, category } = product;
           console.log(`Producto eliminado: ID: ${id}, Title: ${title}, Price: ${price}, Category: ${category}`);
           console.log(`La eliminación del producto con el ID: ${id}, fue exitosa.`);
         } else {
@@ -86,10 +86,10 @@ const main = async () => {
     };
       //Rutina con DELETE
       const idDel = /^products\/\d+$/.test(argv[3]);
-      if(argv[2] === "DELETE" && idDel){  
+      if(argv[2] === "DELETE" && idDel){  //Verifica lo ingresado por consola
         const idItem = argv[3].split("/")[1];
         console.log(`El producto con el ID ${idItem} ingresado para ser eliminado es:`);
-        await productoIdDelete(idItem);
+        await productoIdDelete(idItem);//Llama a la función encargada de Eliminar el producto para ese ID
       }
     
     //Rutina con GET products
